@@ -1,0 +1,17 @@
+@import url('./__button/elements__button.css');
+@import url('./__info/elements__info.css');
+@import url('./__photo/elements__photo.css');
+@import url('./__title/elements__title.css');
+
+
+.elements {
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+}

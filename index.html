@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+
+</head>
+
+<body class="root">
+
+    <div class="page">
+        <header class="header">
+            <img src="./images/logo_white.svg" alt="Логотип" class="header__logo">
+        </header>
+
+        <main class="main">
+            <section class="profile">
+                <img src="./images/avatar.svg" alt="Аватар" class="profile__avatar">
+                <div class="profile__info">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <p class="profile__disc">Исследователь океана</p>
+                    <button name="popup__edit" class="profile__edit-button" type="button"></button>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+
+            <section class="cards">
+                <ul class="card">
+                    <li class="elements">
+                        <img src="./images/Karavhevsk.png" alt="Карачаевск" class="elements__photo">
+                        <div class="elements__info">
+                            <h3 class="elements__title">Карачаевск</h3>
+                            <button class="elements__button"></button>
+                        </div>
+                    </li>
+                    <li class="elements">
+                        <img src="./images/Elbrus.png" alt="Эльбрус" class="elements__photo">
+                        <div class="elements__info">
+                            <h3 class="elements__title">Гора Эльбрус</h3>
+                            <button class="elements__button"></button>
+                        </div>
+                    </li>
+                    <li class="elements">
+                        <img src="./images/Dombai.png" alt="Домбай" class="elements__photo">
+                        <div class="elements__info">
+                            <h3 class="elements__title">Домбай</h3>
+                            <button class="elements__button"></button>
+                        </div>
+                    </li>
+                    <li class="elements">
+                        <img src="./images/Elbrus.png" alt="Эльбрус" class="elements__photo">
+                        <div class="elements__info">
+                            <h3 class="elements__title">Гора Эльбрус</h3>
+                            <button class="elements__button"></button>
+                        </div>
+                    </li>
+                    <li class="elements">
+                        <img src="./images/Dombai.png" alt="Домбай" class="elements__photo">
+                        <div class="elements__info">
+                            <h3 class="elements__title">Домбай</h3>
+                            <button class="elements__button"></button>
+                        </div>
+                    </li>
+                    <li class="elements">
+                        <img src="./images/Karavhevsk.png" alt="Карачаевск" class="elements__photo">
+                        <div class="elements__info">
+                            <h3 class="elements__title">Карачаевск</h3>
+                            <button class="elements__button"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2021 Mikhail Sedenkov</p>
+        </footer>
+    </div>
+
+    <div class="popup">
+        <div class="popup__content">
+            <button class="popup__button-close"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form action="#" class="popup__form">
+                <input type="text" name="name" class="popup__input popup__name">
+                <input type="text" name="disc" class="popup__input popup__disc">
+                <button class="popup__save" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
