@@ -1,23 +1,23 @@
 .elements__button {
-  border-style: none;
-  background-image: url('../../../images/like_disable.svg');
-  width: 22px;
-  flex-shrink: 0;
-  flex-basis: 22px;
-  object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #fff;
+    border-style: none;
+    background-image: url('../../../images/like_disable.svg');
+    width: 22px;
+    flex-shrink: 0;
+    flex-basis: 22px;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
 }
 
 .elements__button:hover {
-  opacity: 50%;
-  cursor: pointer;
-  transition: 0.3s;
+    opacity: 50%;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .elements__button:focus {
-  background-image: url('../../../images/like_active.svg');
-  opacity: 100%;
-  pointer-events: none;
+    background-image: url('../../../images/like_active.svg');
+    opacity: 100%;
+    pointer-events: none;
 }
