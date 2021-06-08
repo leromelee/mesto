@@ -4,8 +4,8 @@ let closeButton = document.querySelector('.popup__button-close');
 let profileName = document.querySelector('.profile__name');
 let profileDisc = document.querySelector('.profile__disc');
 let saveForm = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup__name');
-let discInput = document.querySelector('.popup__disc');
+let nameInput = document.querySelector('.popup__form-name');
+let discInput = document.querySelector('.popup__form-disc');
 
 
 

@@ -1,0 +1,11 @@
+.element {
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+}
