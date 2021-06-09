@@ -3,6 +3,7 @@
     height: 50px;
     box-sizing: border-box;
     border: 2px solid #fff;
+    border-radius: 2px;
     background-image: url('../../../images/addbutton.svg');
     justify-self: self-end;
     background-color: transparent;

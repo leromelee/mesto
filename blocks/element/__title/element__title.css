@@ -7,4 +7,8 @@
     line-height: 29px;
     font-style: normal;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
 }
