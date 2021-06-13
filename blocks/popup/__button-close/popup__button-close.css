@@ -13,6 +13,7 @@
     border: none;
     margin: 0;
     padding: 0;
+    transition: ease-in-out 0.3s;
 }
 
 @media screen and (max-width:510px) {

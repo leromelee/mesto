@@ -15,9 +15,3 @@
     cursor: pointer;
     transition: 0.3s;
 }
-
-.element__button:focus {
-    background-image: url('../../../images/like_active.svg');
-    opacity: 100%;
-    pointer-events: none;
-}
