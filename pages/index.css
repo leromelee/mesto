@@ -12,7 +12,6 @@
 @import url('../blocks/popup/__save/popup__save.css');
 @import url('../blocks/popup/__title/popup__title.css');
 @import url('../blocks/popup/_active/popup_active.css');
-@import url('../blocks/popup/__type/_closecard/popup__type_closecard.css');
 @import url('../blocks/closecard/closecard.css');
 @import url('../blocks/closecard/__photo/closecard__photo.css');
 @import url('../blocks/closecard/__name/closecard__name.css');
