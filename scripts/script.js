@@ -19,10 +19,10 @@ const addCardLink = popupAddCard.querySelector('.popup__input_form_link');
 const addForm = popupAddCard.querySelector('.popup__form');
 const closeButtonAdd = popupAddCard.querySelector('.popup__button-close');
 const popupCloseCard = document.querySelector('.popup__closecard');
-const closeCardName = document.querySelector('.closecard__name');
-const closeCardPhoto = document.querySelector('.closecard__photo');
+const closeCardName = document.querySelector('.popup__closecard_name');
+const closeCardPhoto = document.querySelector('.popup__closecard_photo');
 const closeButtonCard = popupCloseCard.querySelector('.popup__button-close');
-const cardTemplate = document.querySelector('#card__template')
+const cardTemplate = document.querySelector('#card-template')
 const cardTemplateElements = cardTemplate.content;
 
 const initialCards = [{
