@@ -1,99 +1,76 @@
-const popup = document.querySelector('.popup');
 const root = document.querySelector('.root');
 const main = document.querySelector('.main');
 const cards = document.querySelector('.card');
-const closeButton = popup.querySelector('.popup__button-close');
-const saveForm = popup.querySelector('.popup__form');
+const closePopupEditProfileBtn = document.querySelector('.popup__button-close');
+const formEditProfile = document.querySelector('.popup__form');
 const nameInput = document.querySelector('.popup__input_form_name');
 const popupEditProfile = document.querySelector('.popup_type_editprofile');
 const discInput = document.querySelector('.popup__input_form_disc');
 const profile = document.querySelector('.profile');
-const addButton = document.querySelector('.profile__add-button');
-const editButton = document.querySelector('.profile__edit-button');
+const openPopupAddCardBtn = document.querySelector('.profile__add-button');
+const openPopupEditProfileBtn = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__name');
 const profileDisc = document.querySelector('.profile__disc');
-const squareButton = cards.querySelector('.element__photo')
 const popupAddCard = document.querySelector('.popup_type_addcard');
-const addCardTitle = popupAddCard.querySelector('.popup__input_form_title');
-const addCardLink = popupAddCard.querySelector('.popup__input_form_link');
-const addForm = popupAddCard.querySelector('.popup__form');
-const closeButtonAdd = popupAddCard.querySelector('.popup__button-close');
-const popupCloseCard = document.querySelector('.popup_type_closecard');
-const closeCardName = document.querySelector('.popup__name');
-const closeCardPhoto = document.querySelector('.popup__photo');
-const closeButtonCard = popupCloseCard.querySelector('.popup__button-close');
-const cardTemplate = document.querySelector('#card-template')
+const inputCardName = popupAddCard.querySelector('.popup__input_form_title');
+const inputCardLink = popupAddCard.querySelector('.popup__input_form_link');
+const formAddCard = popupAddCard.querySelector('.popup__form');
+const closePopupAddCardBtn = popupAddCard.querySelector('.popup__button-close');
+const popupImage = document.querySelector('.popup_type_closecard');
+const zoomedImageTitle = document.querySelector('.popup__name');
+const zoomedImage = document.querySelector('.popup__photo');
+const closePopupImageBtn = popupImage.querySelector('.popup__button-close');
+const cardTemplate = document.querySelector('#card-template');
 const cardTemplateElements = cardTemplate.content;
 
-const initialCards = [{
-        name: 'Манхэттен',
-        link: 'https://images.unsplash.com/photo-1512850183-6d7990f42385?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-    },
-    {
-        name: 'Лондон',
-        link: 'https://images.unsplash.com/photo-1534800891164-a1d96b5114e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=696&q=80'
-    },
-    {
-        name: 'Москва',
-        link: 'https://images.unsplash.com/photo-1514813621023-7a1e3fca8c1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-        name: 'Манчестер',
-        link: 'https://images.unsplash.com/photo-1515586838455-8f8f940d6853?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1284&q=80'
-    },
-    {
-        name: 'Вашингтон',
-        link: 'https://images.unsplash.com/photo-1501466044931-62695aada8e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1278&q=80'
-    },
-    {
-        name: 'Санкт-Петербург',
-        link: 'https://images.unsplash.com/photo-1556610961-2fecc5927173?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1520&q=80'
-    }
-];
 
 
-function takeInputs() {
+
+/* function fillEditProfileFormInputs() {
     nameInput.value = profileName.textContent;
     discInput.value = profileDisc.textContent;
-}
+} */
 
-function activePopup(popup) {
+
+/* Если убираю замыкание, то поп-апы начинаются сами открываться при загрузке страницы, не понимаю почему. */
+function openPopup(popup) {
     return function() {
         popup.classList.add('popup_active');
-        takeInputs();
     }
 }
+
 
 function closePopup(popup) {
     return popup.classList.remove('popup_active');
 }
 
-editButton.addEventListener('click', activePopup(popupEditProfile));
+openPopupEditProfileBtn.addEventListener('click', openPopup(popupEditProfile));
 
-closeButton.addEventListener('click', function() {
+closePopupEditProfileBtn.addEventListener('click', function() {
     closePopup(popupEditProfile);
 });
 
-function submitForm(submit) {
+function submitEditProfileForm(submit) {
     submit.preventDefault();
     profileName.textContent = nameInput.value;
     profileDisc.textContent = discInput.value;
+    formEditProfile.reset();
     closePopup(popupEditProfile);
 }
 
-addButton.addEventListener('click', activePopup(popupAddCard));
+openPopupAddCardBtn.addEventListener('click', openPopup(popupAddCard));
 
-closeButtonAdd.addEventListener('click', function() {
+closePopupAddCardBtn.addEventListener('click', function() {
     closePopup(popupAddCard);
 });
 
-closeButtonCard.addEventListener('click', () => {
-    closePopup(popupCloseCard);
+closePopupImageBtn.addEventListener('click', () => {
+    closePopup(popupImage);
 });
 
-saveForm.addEventListener('submit', submitForm);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
 
-function generCard(name, link) {
+function createCard(name, link) {
     const cardElement = cardTemplateElements.cloneNode(true);
     cardElement.querySelector('.element__button')
         .addEventListener('click', function(evt) {
@@ -106,10 +83,10 @@ function generCard(name, link) {
         });
     cardElement.querySelector('.element__photo')
         .addEventListener('click', function(evt) {
-            closeCardName.textContent = evt.target.nextElementSibling.textContent;
-            closeCardPhoto.alt = evt.target.nextElementSibling.textContent;
-            closeCardPhoto.src = evt.target.src;
-            activePopup(popupCloseCard)(popup);
+            zoomedImageTitle.textContent = evt.target.nextElementSibling.textContent;
+            zoomedImage.alt = evt.target.nextElementSibling.textContent;
+            zoomedImage.src = evt.target.src;
+            openPopup(popupImage)();
         });
     const cardElementPhoto = cardElement.querySelector('.element__photo');
     cardElement.querySelector('.element__title')
@@ -124,13 +101,13 @@ function generCard(name, link) {
 
 function submitFormCards(evt) {
     evt.preventDefault();
-    cards.prepend(generCard(addCardTitle.value, addCardLink.value));
-    addForm.reset();
+    cards.prepend(createCard(inputCardName.value, inputCardLink.value));
+    formAddCard.reset();
     closePopup(popupAddCard);
 };
 
 initialCards.forEach(function(item) {
-    cards.prepend(generCard(item.name, item.link));
+    cards.prepend(createCard(item.name, item.link));
 });
 
-addForm.addEventListener('submit', submitFormCards);
+formAddCard.addEventListener('submit', submitFormCards);
