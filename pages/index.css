@@ -12,9 +12,9 @@
 @import url('../blocks/popup/__save/popup__save.css');
 @import url('../blocks/popup/__title/popup__title.css');
 @import url('../blocks/popup/_active/popup_active.css');
-@import url('../blocks/popup/__closecard/_figure/popup__closecard_figure.css');
-@import url('../blocks/popup/__closecard/_name/popup__closecard_name.css');
-@import url('../blocks/popup/__closecard/_photo/popup__closecard_photo.css');
+@import url('../blocks/popup/_closecard/_figure/popup_closecard_figure.css');
+@import url('../blocks/popup/_closecard/_name/popup_closecard_name.css');
+@import url('../blocks/popup/_closecard/_photo/popup_closecard_photo.css');
 @import url('../blocks/main/main.css');
 @import url('../blocks/profile/profile.css');
 @import url('../blocks/profile/__add-button/profile__add-button.css');
