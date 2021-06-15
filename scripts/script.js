@@ -1,5 +1,3 @@
-const root = document.querySelector('.root');
-const main = document.querySelector('.main');
 const cards = document.querySelector('.card');
 const closePopupEditProfileBtn = document.querySelector('.popup__button-close');
 const formEditProfile = document.querySelector('.popup__form');
@@ -26,25 +24,27 @@ const cardTemplateElements = cardTemplate.content;
 
 
 
-/* function fillEditProfileFormInputs() {
+function fillEditProfileFormInputs() {
     nameInput.value = profileName.textContent;
     discInput.value = profileDisc.textContent;
-} */
+}
 
 
-/* Если убираю замыкание, то поп-апы начинаются сами открываться при загрузке страницы, не понимаю почему. */
 function openPopup(popup) {
-    return function() {
-        popup.classList.add('popup_active');
-    }
+    popup.classList.add('popup_active');
+
 }
 
 
 function closePopup(popup) {
-    return popup.classList.remove('popup_active');
+    popup.classList.remove('popup_active');
 }
 
-openPopupEditProfileBtn.addEventListener('click', openPopup(popupEditProfile));
+openPopupEditProfileBtn.addEventListener('click',
+    function() {
+        openPopup(popupEditProfile);
+        fillEditProfileFormInputs();
+    });
 
 closePopupEditProfileBtn.addEventListener('click', function() {
     closePopup(popupEditProfile);
@@ -54,11 +54,12 @@ function submitEditProfileForm(submit) {
     submit.preventDefault();
     profileName.textContent = nameInput.value;
     profileDisc.textContent = discInput.value;
-    formEditProfile.reset();
     closePopup(popupEditProfile);
 }
 
-openPopupAddCardBtn.addEventListener('click', openPopup(popupAddCard));
+openPopupAddCardBtn.addEventListener('click', function() {
+    openPopup(popupAddCard);
+});
 
 closePopupAddCardBtn.addEventListener('click', function() {
     closePopup(popupAddCard);
