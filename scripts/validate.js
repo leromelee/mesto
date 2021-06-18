@@ -6,19 +6,6 @@ function enableValidation(settings) {
     });
 }
 
-function handleFormSubmit(evt, { submitButtonSelector, inactiveButtonClass }) {
-    evt.preventDefault();
-    const formElement = evt.currentTarget;
-    const submitButton = formElement.querySelector(submitButtonSelector);
-    const isValid = formElement.checkValidity();
-
-    if (isValid) {
-        formElement.reset();
-        submitButton.classList.add(inactiveButtonClass);
-        submitButton.setAttribute('disabled', true);
-    }
-}
-
 function setSubmitButtonState(formElement, settings) {
     const submitButton = formElement.querySelector(settings.submitButtonSelector);
     const isValid = formElement.checkValidity();
@@ -30,7 +17,6 @@ function setSubmitButtonState(formElement, settings) {
         submitButton.classList.add(settings.inactiveButtonClass);
         submitButton.setAttribute('disabled', true);
     }
-
 }
 
 function setInputError(inputElement, settings) {
@@ -55,6 +41,8 @@ function setAreaError(inputElement) {
     const p = document.querySelector(`#${inputElement.id}-error`);
     p.textContent = inputElement.validationMessage;
 }
+
+
 
 enableValidation({
     formElement: '.popup__form',
