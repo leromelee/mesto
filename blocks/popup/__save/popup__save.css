@@ -10,7 +10,6 @@
     width: 100%;
     box-sizing: border-box;
     border: none;
-    margin: 48px 0 0;
     padding: 0;
     transition: opacity ease-in-out 0.3s;
 }
@@ -18,7 +17,6 @@
 @media screen and (max-width: 970px) {
     .popup__save {
         height: 46px;
-        margin: 45px 0 0;
         font-size: 14px;
         line-height: 17px;
     }

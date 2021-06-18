@@ -9,12 +9,17 @@
 @import url('../blocks/popup/__content/popup__content.css');
 @import url('../blocks/popup/__form/popup__form.css');
 @import url('../blocks/popup/__input/popup__input.css');
+@import url('../blocks/popup/__input-container/popup__input-container.css');
 @import url('../blocks/popup/__save/popup__save.css');
+@import url('../blocks/popup/__save/_disabled/popup__save_disabled.css');
 @import url('../blocks/popup/__title/popup__title.css');
 @import url('../blocks/popup/_active/popup_active.css');
 @import url('../blocks/popup/__figure/popup__figure.css');
 @import url('../blocks/popup/__photo/popup__photo.css');
+@import url('../blocks/popup/__content-closecard/popup__content-closecard.css');
 @import url('../blocks/popup/__name/popup__name.css');
+@import url('../blocks/popup/__error/popup__error.css');
+@import url('../blocks/popup/__input/_type/popup__input_type_error.css');
 @import url('../blocks/main/main.css');
 @import url('../blocks/profile/profile.css');
 @import url('../blocks/profile/__add-button/profile__add-button.css');

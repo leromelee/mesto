@@ -11,10 +11,9 @@
 </head>
 
 <body class="root">
-
     <div class="page">
         <header class="header">
-            <img src="./images/logo_white.svg" alt="Логотип" class="header__logo">
+            <img class="header__logo" src="./images/logo_white.svg" alt="Логотип">
         </header>
 
         <main class="main">
@@ -27,63 +26,68 @@
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
-
             <section class="cards">
-                <ul class="card">
-                </ul>
+                <ul class="card"></ul>
             </section>
         </main>
-
         <footer class="footer">
             <p class="footer__copyright">&copy; 2021 Mikhail Sedenkov</p>
         </footer>
-    </div>
-
-    <div class="popup popup_type_editprofile">
-        <div class="popup__content">
-            <button class="popup__button-close" type="button"></button>
-            <h3 class="popup__title">Редактировать профиль</h3>
-            <form action="#" name="popup-form" class="popup__form">
-                <input type="text" name="name" placeholder="Введите имя" class="popup__input popup__input_form_name">
-                <input type="text" name="disc" placeholder="Введите свой род деятельности" class="popup__input popup__input_form_disc">
-                <button class="popup__save" type="submit">Сохранить</button>
-            </form>
+        <div class="popup popup_type_editprofile">
+            <div class="popup__content">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__form">
+                    <div class="popup__input-container">
+                        <input required class="popup__input popup__input_form_name" minlength="2" maxlength="30" name="name" id="name-profile" type="text" placeholder="Введите имя">
+                        <p id="name-profile-error" class="popup__error"></p>
+                    </div>
+                    <div class="popup__input-container">
+                        <input required class="popup__input popup__input_form_disc" minlength="2" maxlength="200" name="disc" id="disc-profile" type="text" placeholder="Введите свой род деятельности">
+                        <p id="disc-profile-error" class="popup__error"></p>
+                    </div>
+                    <button class="popup__save popup__save-profile" type="submit" name="Save" aria-label="Сохранить">Сохранить</button>
+                </form>
+                <button class="popup__button-close" type="button" aria-label="Закрыть"></button>
+            </div>
         </div>
-    </div>
-
-    <div class="popup popup_type_addcard ">
-        <div class="popup__content">
-            <button class="popup__button-close" type="button"></button>
-            <h3 class="popup__title">Новое Место</h3>
-            <form action="#" name="popup-form" class="popup__form" id="cardForm">
-                <input type="text" placeholder="Название" name="name" class="popup__input popup__input_form_title">
-                <input type="text" placeholder="Ссылка на картинку" name="disc" class="popup__input popup__input_form_link">
-                <button class="popup__save" type="submit">Создать</button>
-            </form>
+        <div class="popup popup_type_addcard">
+            <div class="popup__content">
+                <h3 class="popup__title">Новое место</h3>
+                <form class="popup__form" id="cardForm">
+                    <div class="popup__input-container">
+                        <input required class="popup__input popup__input_form_title" minlength="2" maxlength="30" id="title-addcard" name="title" type="text" placeholder="Название">
+                        <p id="title-addcard-error" class="popup__error"></p>
+                    </div>
+                    <div class="popup__input-container">
+                        <input required class="popup__input popup__input_form_link" id="link-addcard" name="disc" type="url" placeholder="Ссылка на картинку">
+                        <p id="link-addcard-error" class="popup__error"></p>
+                    </div>
+                    <button disabled type="submit" class="popup__save popup__save_disabled">Создать</button>
+                </form>
+                <button class="popup__button-close" type="button" aria-label="Закрыть"></button>
+            </div>
         </div>
+        <div class="popup popup_type_closecard">
+            <figure class="popup__content-closecard">
+                <button class="popup__button-close" type="button"></button>
+                <img src="#" alt="#" class="popup__photo">
+                <figcaption class="popup__name"></figcaption>
+            </figure>
+        </div>
+        <template class="template-card">
+          <li class="element">
+            <img src="#" alt="#" class="element__photo">
+            <button class="element__button-delete" type="button"></button>
+            <div class="element__info">
+              <h2 class="element__title"></h2>
+              <button class="element__button" type="button"></button>
+            </div>
+          </li>
+        </template>
     </div>
-
-    <div class="popup popup_type_closecard">
-        <figure class="popup__figure">
-            <button class="popup__button-close" type="button"></button>
-            <img src="#" alt="#" class="popup__photo">
-            <figcaption class="popup__name"></figcaption>
-        </figure>
-    </div>
-
-    <template id="card-template">
-      <li class="element">
-        <img src="#" alt="" class="element__photo">
-        <div class="element__info">
-          <h2 class="element__title"></h2>
-          <button class="element__button" type="button"></button>
-      </div>
-      <button class="element__button-delete" type="button"></button>
-      </li>
-    </template>
     <script src="./scripts/initial-cards.js"></script>
     <script src="./scripts/script.js"></script>
-
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

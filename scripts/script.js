@@ -17,28 +17,42 @@ const closePopupAddCardBtn = popupAddCard.querySelector('.popup__button-close');
 const popupImage = document.querySelector('.popup_type_closecard');
 const zoomedImageTitle = document.querySelector('.popup__name');
 const zoomedImage = document.querySelector('.popup__photo');
+const elementTitle = document.querySelector('.element__title');
 const closePopupImageBtn = popupImage.querySelector('.popup__button-close');
-const cardTemplate = document.querySelector('#card-template');
+const cardTemplate = document.querySelector('.template-card');
 const cardTemplateElements = cardTemplate.content;
-
-
-
 
 function fillEditProfileFormInputs() {
     nameInput.value = profileName.textContent;
     discInput.value = profileDisc.textContent;
 }
 
-
 function openPopup(popup) {
     popup.classList.add('popup_active');
-
+    document.addEventListener("keydown", closePopupEsc);
+    popup.addEventListener('mousedown', function(evt) {
+        if (evt.target === evt.currentTarget) {
+            closePopup(popup);
+        }
+    });
 }
-
 
 function closePopup(popup) {
     popup.classList.remove('popup_active');
+    document.removeEventListener("keydown", closePopupEsc);
+    popup.removeEventListener('mousedown', function(evt) {
+        if (evt.target === evt.currentTarget) {
+            closePopup(popup);
+        }
+    });
 }
+
+const closePopupEsc = (evt) => {
+    if (evt.key === "Escape") {
+        const activePopup = document.querySelector(".popup_active");
+        closePopup(activePopup);
+    }
+};
 
 openPopupEditProfileBtn.addEventListener('click',
     function() {
@@ -84,17 +98,16 @@ function createCard(name, link) {
         });
     cardElement.querySelector('.element__photo')
         .addEventListener('click', function(evt) {
-            zoomedImageTitle.textContent = evt.target.nextElementSibling.textContent;
             zoomedImage.alt = evt.target.nextElementSibling.textContent;
             zoomedImage.src = evt.target.src;
-            openPopup(popupImage)();
+            openPopup(popupImage);
         });
     const cardElementPhoto = cardElement.querySelector('.element__photo');
-    cardElement.querySelector('.element__title')
-        .textContent = name;
+    cardElement.querySelector('.element__title').textContent = name;
     cardElementPhoto.alt = name;
     cardElementPhoto.src = link;
-
+    zoomedImageTitle.innerText = inputCardName.value;
+    zoomedImageTitle.innerText = name;
 
     return cardElement;
 
