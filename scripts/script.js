@@ -86,9 +86,11 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 function createCard(name, link) {
     const cardElement = cardTemplateElements.cloneNode(true);
+    const cardName = cardElement.querySelector('.element__title');
     cardElement.querySelector('.element__button')
         .addEventListener('click', function(evt) {
             evt.target.classList.toggle('element__button_active');
+
         });
     cardElement.querySelector('.element__button-delete')
         .addEventListener('click', function(evt) {
@@ -97,16 +99,16 @@ function createCard(name, link) {
         });
     cardElement.querySelector('.element__photo')
         .addEventListener('click', function(evt) {
+            zoomedImageTitle.innerText = cardName.innerText;
             zoomedImage.alt = evt.target.nextElementSibling.textContent;
             zoomedImage.src = evt.target.src;
             openPopup(popupImage);
         });
     const cardElementPhoto = cardElement.querySelector('.element__photo');
-    cardElement.querySelector('.element__title').textContent = name;
     cardElementPhoto.alt = name;
     cardElementPhoto.src = link;
-    zoomedImageTitle.innerText = inputCardName.value;
-    zoomedImageTitle.innerText = name;
+    cardName.innerText = inputCardName.value;
+    cardName.innerText = name;
 
     return cardElement;
 
