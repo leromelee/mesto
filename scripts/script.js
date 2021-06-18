@@ -17,7 +17,6 @@ const closePopupAddCardBtn = popupAddCard.querySelector('.popup__button-close');
 const popupImage = document.querySelector('.popup_type_closecard');
 const zoomedImageTitle = document.querySelector('.popup__name');
 const zoomedImage = document.querySelector('.popup__photo');
-const elementTitle = document.querySelector('.element__title');
 const closePopupImageBtn = popupImage.querySelector('.popup__button-close');
 const cardTemplate = document.querySelector('.template-card');
 const cardTemplateElements = cardTemplate.content;
