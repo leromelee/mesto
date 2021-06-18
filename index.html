@@ -36,7 +36,7 @@
         <div class="popup popup_type_editprofile">
             <div class="popup__content">
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <form class="popup__form">
+                <form novalidate class="popup__form">
                     <div class="popup__input-container">
                         <input required class="popup__input popup__input_form_name" minlength="2" maxlength="30" name="name" id="name-profile" type="text" placeholder="Введите имя">
                         <p id="name-profile-error" class="popup__error"></p>
@@ -53,7 +53,7 @@
         <div class="popup popup_type_addcard">
             <div class="popup__content">
                 <h3 class="popup__title">Новое место</h3>
-                <form class="popup__form" id="cardForm">
+                <form novalidate class="popup__form" id="cardForm">
                     <div class="popup__input-container">
                         <input required class="popup__input popup__input_form_title" minlength="2" maxlength="30" id="title-addcard" name="title" type="text" placeholder="Название">
                         <p id="title-addcard-error" class="popup__error"></p>

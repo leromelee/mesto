@@ -1,18 +1,8 @@
 function enableValidation(settings) {
     const formElement = Array.from(document.querySelectorAll(settings.formElement));
     formElement.forEach(function(item) {
-        item.addEventListener('submit', (evt) => handleFormSubmit(evt, settings));
         item.addEventListener('input', (evt) => handleFormInput(evt, settings));
     });
-}
-
-function handleFormSubmit(evt) {
-    evt.preventDefault();
-    const formElement = evt.currentTarget;
-    const isValid = formElement.checkValidity();
-    if (isValid) {
-        formElement.reset();
-    }
 }
 
 function setSubmitButtonState(formElement, settings) {
@@ -26,6 +16,7 @@ function setSubmitButtonState(formElement, settings) {
         submitButton.classList.add(settings.inactiveButtonClass);
         submitButton.setAttribute('disabled', true);
     }
+
 }
 
 function setInputError(inputElement, settings) {
@@ -56,5 +47,6 @@ enableValidation({
     inputElement: '.popup__input',
     inputErrorClass: 'popup__input_type_error',
     submitButtonSelector: '.popup__save',
-    inactiveButtonClass: 'popup__save_disabled'
+    inactiveButtonClass: 'popup__save_disabled',
+    errorClass: '.popup__error'
 });
