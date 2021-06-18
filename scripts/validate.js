@@ -1,8 +1,22 @@
 function enableValidation(settings) {
     const formElement = Array.from(document.querySelectorAll(settings.formElement));
     formElement.forEach(function(item) {
+        item.addEventListener('submit', (evt) => handleFormSubmit(evt, settings));
         item.addEventListener('input', (evt) => handleFormInput(evt, settings));
     });
+}
+
+function handleFormSubmit(evt, { submitButtonSelector, inactiveButtonClass }) {
+    evt.preventDefault();
+    const formElement = evt.currentTarget;
+    const submitButton = formElement.querySelector(submitButtonSelector);
+    const isValid = formElement.checkValidity();
+
+    if (isValid) {
+        formElement.reset();
+        submitButton.classList.add(inactiveButtonClass);
+        submitButton.setAttribute('disabled', true);
+    }
 }
 
 function setSubmitButtonState(formElement, settings) {
