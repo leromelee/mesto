@@ -1,7 +1,6 @@
 function enableValidation(settings) {
     const formElement = Array.from(document.querySelectorAll(settings.formElement));
     formElement.forEach(function(item) {
-        item.addEventListener('submit', (evt) => handleFormSubmit(evt, settings));
         item.addEventListener('input', (evt) => handleFormInput(evt, settings));
     });
 }
@@ -41,8 +40,6 @@ function setAreaError(inputElement) {
     const p = document.querySelector(`#${inputElement.id}-error`);
     p.textContent = inputElement.validationMessage;
 }
-
-
 
 enableValidation({
     formElement: '.popup__form',
