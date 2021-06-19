@@ -16,7 +16,7 @@ const inputCardLink = popupAddCard.querySelector('.popup__input_form_link');
 const formAddCard = popupAddCard.querySelector('.popup__form');
 const closePopupAddCardBtn = popupAddCard.querySelector('.popup__button-close');
 const popupImage = document.querySelector('.popup_type_closecard');
-const popupSubmitBtn = document.querySelector('.popup__save');
+const popupSubmitBtn = popupAddCard.querySelector('.popup__save');
 const zoomedImageTitle = document.querySelector('.popup__name');
 const zoomedImage = document.querySelector('.popup__photo');
 const closePopupImageBtn = popupImage.querySelector('.popup__button-close');
@@ -97,7 +97,8 @@ function submitFormCards(evt) {
     cards.prepend(createCard(inputCardName.value, inputCardLink.value));
     formAddCard.reset();
     closePopup(popupAddCard);
-    popupAddCard.querySelector('.popup__save').classList.add('popup__save_disabled');
+    popupSubmitBtn.classList.add('popup__save_disabled');
+    popupSubmitBtn.disabled = true;
 };
 
 initialCards.forEach(function(item) {
