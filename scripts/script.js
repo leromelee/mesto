@@ -58,7 +58,7 @@ openPopupEditProfileBtn.addEventListener('click',
     function() {
         openPopup(popupEditProfile);
         fillEditProfileFormInputs();
-        formEditProfileValidator.enableValidation();
+        formEditProfileValidator.resetValidation();
     });
 
 openPopupAddCardBtn.addEventListener('click', function() {
