@@ -14,7 +14,7 @@ import {
     openPopupEditProfileBtn,
     formEditProfile,
     openPopupAddCardBtn,
-    cardFormElement,
+    addCardForm,
     containerSelector,
     settings,
     nameInput,
@@ -23,8 +23,14 @@ import {
     formEditAvatar
 } from './../utils/constants.js';
 
+/* VARIABLES AND FUNCTION */
+
 let userId = null;
 
+function fillEditProfileFormInputs() {
+    nameInput.value = userInfo.getUserInfo().profileName;
+    discInput.value = userInfo.getUserInfo().profileDisc;
+}
 
 /* CLASSES AND EVENTS*/
 
@@ -53,7 +59,7 @@ call.getUserInfo()
     .then(() => {
         call.getInitialCards()
             .then((data) => {
-                defaultCardList.renderItems(data, 'initial');
+                defaultCardList.renderItems(data, 'init');
             })
             .catch((err) => {
                 console.log(err);
@@ -69,7 +75,7 @@ const addCardPopup = new PopupWithForm('.popup_type_addcard', {
         addCardPopup.renderLoading(true);
         call.postAddCard(data)
             .then((res) => {
-                defaultCardList.setItem(res, 'additional');
+                defaultCardList.setItem(res, 'other');
             })
             .then(() => {
                 addCardPopup.close();
@@ -110,11 +116,6 @@ const editProfilePopup = new PopupWithForm('.popup_type_editprofile', {
         profileForm.resetValidation();
     }
 });
-
-function fillEditProfileFormInputs() {
-    nameInput.value = userInfo.getUserInfo().profileName;
-    discInput.value = userInfo.getUserInfo().profileDisc;
-}
 
 editProfilePopup.setEventListeners();
 
@@ -212,7 +213,7 @@ openPopupEditAvatarBtn.addEventListener('click', () => { avatarFormPopup.open();
 
 /* VALIDATION */
 
-const cardForm = new FormValidator(settings, cardFormElement);
+const cardForm = new FormValidator(settings, addCardForm);
 const profileForm = new FormValidator(settings, formEditProfile);
 const avatarForm = new FormValidator(settings, formEditAvatar);
 

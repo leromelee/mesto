@@ -7,11 +7,11 @@ class Section {
 
     setItem(element, item) {
 
-        if (item === 'initial') {
+        if (item === 'init') {
             this._container.append(this._renderer(element));
         }
 
-        if (item === 'additional') {
+        if (item === 'other') {
             this._container.prepend(this._renderer(element));
         }
 

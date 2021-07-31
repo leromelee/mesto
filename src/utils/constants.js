@@ -8,7 +8,7 @@ export const openPopupAddCardBtn = document.querySelector('.profile__add-button'
 export const openPopupEditProfileBtn = document.querySelector('.profile__edit-button');
 export const openPopupEditAvatarBtn = document.querySelector('.profile__avatar-button');
 export const formEditProfile = popupEditProfile.querySelector('.popup__form');
-export const cardFormElement = popupAddCard.querySelector('.popup__form');
+export const addCardForm = popupAddCard.querySelector('.popup__form');
 export const formEditAvatar = popupEditProfileAvatar.querySelector('.popup__form');
 
 
