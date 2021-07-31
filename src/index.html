@@ -17,7 +17,10 @@
 
         <main class="main">
             <section class="profile">
-                <img src="<%=require('./images/avatar.svg')%>" alt="Аватар" class="profile__avatar">
+                <div class="profile__avatar-overlay">
+                    <img src="<%=require('./images/avatar.svg')%>" alt="Аватар" class="profile__avatar">
+                    <button type="button" class="profile__avatar-button"></button>
+                </div>
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <p class="profile__disc">Исследователь океана</p>
@@ -41,7 +44,7 @@
                         <p id="name-profile-error" class="popup__error"></p>
                     </div>
                     <div class="popup__input-container">
-                        <input required class="popup__input popup__input_form_disc" minlength="2" maxlength="200" name="disc" id="disc-profile" type="text" placeholder="Введите свой род деятельности">
+                        <input required class="popup__input popup__input_form_disc" minlength="2" maxlength="200" name="description" id="disc-profile" type="text" placeholder="Введите свой род деятельности">
                         <p id="disc-profile-error" class="popup__error"></p>
                     </div>
                     <button class="popup__save" type="submit" aria-label="Сохранить">Сохранить</button>
@@ -54,11 +57,11 @@
                 <h3 class="popup__title">Новое место</h3>
                 <form novalidate id="cardPopupForm" class="popup__form" id="cardForm">
                     <div class="popup__input-container">
-                        <input required class="popup__input popup__input_form_title" minlength="2" maxlength="30" id="title-addcard" name="title" type="text" placeholder="Название">
+                        <input required class="popup__input popup__input_form_title" minlength="2" maxlength="30" id="title-addcard" name="name" type="text" placeholder="Название">
                         <p id="title-addcard-error" class="popup__error"></p>
                     </div>
                     <div class="popup__input-container">
-                        <input required class="popup__input popup__input_form_link" id="link-addcard" name="disc" type="url" placeholder="Ссылка на картинку">
+                        <input required class="popup__input popup__input_form_link" id="link-addcard" name="link" type="url" placeholder="Ссылка на картинку">
                         <p id="link-addcard-error" class="popup__error"></p>
                     </div>
                     <button type="submit" class="popup__save popup__save_disabled">Создать</button>
@@ -73,13 +76,41 @@
                 <figcaption class="popup__name"></figcaption>
             </figure>
         </div>
-        <template id="card'" class="template-card">
+        <div class="popup popup_type_editavatar">
+            <div class="popup__content">
+                <button class="popup__button-close" type="button"></button>
+                <h2 class="popup__title">Обновить аватар</h2>
+                <form class="popup__form" novalidate>
+                    <div class="popup__input-container">
+                        <input required class="popup__input popup__input_form_link" id="link-editavatar" name="link" type="url" placeholder="Ссылка на картинку">
+                        <p id="link-editavatar-error" class="popup__error"></p>
+                    </div>
+                    <button class="popup__save" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_submit" id="popup__submit">
+            <div class="popup__content">
+                <button class="popup__button-close" type="button"></button>
+                <div class="form">
+                    <h2 class="popup__title">Вы уверены?</h2>
+                    <form class="popup__form" id="avatar-form" novalidate>
+                        <button class="popup__save" type="submit">Да</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <template id="card" class="template-card">
           <li class="element">
             <img src="#" alt="#" class="element__photo">
             <button class="element__button-delete" type="button"></button>
             <div class="element__info">
               <h2 class="element__title"></h2>
-              <button class="element__button" type="button"></button>
+              <div class="element__button-group">
+                <button class="element__button" type="button"></button>
+                <p class="element__like-counter">0</p>
+              </div>
             </div>
           </li>
         </template>

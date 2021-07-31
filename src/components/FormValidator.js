@@ -26,30 +26,38 @@ class FormValidator {
     }
 
     _setInputError(inputElement) {
+
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.add(this._settings.inputErrorClass);
         errorElement.textContent = inputElement.validationMessage;
+
     }
 
     _hideInputError(inputElement) {
+
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this._settings.inputErrorClass);
         errorElement.textContent = '';
+
     }
 
     _setAreaError() {
+
         return Array.from(this._inputList).some((inputElement) => {
             return !inputElement.validity.valid;
+
         })
     }
 
     _setEventListeners() {
+
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._isValid(inputElement);
                 this._setSubmitButtonState();
             });
         });
+
     }
 
     enableValidation() {
