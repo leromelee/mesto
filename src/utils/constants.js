@@ -10,7 +10,7 @@ export const openPopupEditAvatarBtn = document.querySelector('.profile__avatar-b
 export const formEditProfile = popupEditProfile.querySelector('.popup__form');
 export const addCardForm = popupAddCard.querySelector('.popup__form');
 export const formEditAvatar = popupEditProfileAvatar.querySelector('.popup__form');
-
+export const clickEscape = 'Escape';
 
 
 export const settings = {

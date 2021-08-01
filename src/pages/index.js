@@ -48,23 +48,15 @@ const userInfo = new UserInfo({
     avatarSelector: '.profile__avatar'
 });
 
-call.getUserInfo()
-    .then((res) => {
+Promise.all([call.getUserInfo(), call.getInitialCards()])
+    .then(([res, data]) => {
         userInfo.setUserInfo(res);
         userId = res._id;
+        defaultCardList.renderItems(data, 'init');
     })
     .catch((err) => {
         console.log(err);
-    })
-    .then(() => {
-        call.getInitialCards()
-            .then((data) => {
-                defaultCardList.renderItems(data, 'init');
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    })
+    });
 
 
 const popupImage = new PopupWithImage('.popup_type_closecard');
@@ -76,8 +68,6 @@ const addCardPopup = new PopupWithForm('.popup_type_addcard', {
         call.postAddCard(data)
             .then((res) => {
                 defaultCardList.setItem(res, 'other');
-            })
-            .then(() => {
                 addCardPopup.close();
             })
             .catch((err) => {
@@ -100,8 +90,6 @@ const editProfilePopup = new PopupWithForm('.popup_type_editprofile', {
         call.patchUserInfo(data)
             .then((res) => {
                 userInfo.setUserInfo(res);
-            })
-            .then(() => {
                 editProfilePopup.close();
             })
             .catch((err) => {
@@ -125,8 +113,6 @@ const avatarFormPopup = new PopupWithForm('.popup_type_editavatar', {
         call.editAvatar(data)
             .then((res) => {
                 userInfo.editAvatar(res);
-            })
-            .then(() => {
                 avatarFormPopup.close();
             })
             .catch((err) => {
@@ -147,8 +133,6 @@ const popupSubmit = new PopupWithSubmit('.popup_type_submit', {
         call.deletePhoto(id)
             .then(() => {
                 data.remove();
-            })
-            .then(() => {
                 popupSubmit.close();
             })
             .catch((err) => {

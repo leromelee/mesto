@@ -1,3 +1,4 @@
+import { clickEscape } from '../utils/constants.js';
 class Popup {
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector);
@@ -5,7 +6,7 @@ class Popup {
     }
 
     _closePopupEsc(event) {
-        if (event.key === 'Escape') {
+        if (event.key === clickEscape) {
             this.close();
         }
     }
